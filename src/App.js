@@ -1,14 +1,14 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from './components/NavBar';
+import ItemListContainer from './components/ItemListContainer';
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <Navbar />
-      <header className="App-header">
-        Bienvenido a tu tienda de insumos para tu PC Master Race!!
-      </header>
+      <ItemListContainer listaItems= "Aquí encontrarás tu lista de productos!"/>
+     
     </div>
   );
 }

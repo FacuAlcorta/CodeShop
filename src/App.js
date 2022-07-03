@@ -1,22 +1,20 @@
-import logo from './logo.svg';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
     <div className="App">
+        <nav className="navbar sticky-top navbar-dark bg-dark">
+          <div className="container-fluid">
+            <div className="navbar-brand">PC/MasterRace</div>
+            <a className="navbar-brand" href="#">#Home</a>
+            <a className="navbar-brand" href="#">Productos</a>
+            <a className="navbar-brand" href="#">Contacto</a>
+            <a className="navbar-brand" href="#">Ayuda</a>
+          </div>
+        </nav>
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        Bienvenido a tu tienda de insumos para tu PC Master Race!!
       </header>
     </div>
   );

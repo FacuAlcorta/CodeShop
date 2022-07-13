@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 const ItemCount = ({ini, stock, onAdd}) => {
+  
     const [contador, setContador] = useState(ini); 
 
     const suma = () =>{

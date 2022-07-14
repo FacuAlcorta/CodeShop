@@ -4,11 +4,8 @@ import ItemCount from "./ItemCount";
 const ItemListContainer= ({listaItems}) =>{
     
     const onAdd = (p) => {
-        if (p == 1) {
-          console.log(`Se agregó ${p} producto al carrito`)
-        } else if (p > 1) {
-          console.log(`Se agregaron ${p} productos al carrito`)
-        }
+        (p == 1) ? (console.log(`Se agregó ${p} producto al carrito`)) :
+          (console.log(`Se agregaron ${p} productos al carrito`))
         }
         
 

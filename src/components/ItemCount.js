@@ -21,16 +21,6 @@ const ItemCount = ({ini, stock, onAdd}) => {
     }
 
 
-    // const onAdd = () => {
-    //   if (contador == 1) {
-    //     console.log(`Se agregó ${contador} producto al carrito`)
-    //   } else if (contador > 1) {
-    //     console.log(`Se agregaron ${contador} productos al carrito`)
-    //   }
-    //   }
-      
-
-    
   return (
     <>
       <div>Tu lista de items!</div>

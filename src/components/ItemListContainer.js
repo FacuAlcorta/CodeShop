@@ -1,5 +1,6 @@
 import React from "react";
 import ItemCount from "./ItemCount";
+import ItemList from "./ItemList";
 
 const ItemListContainer= ({listaItems}) =>{
     
@@ -13,6 +14,7 @@ const ItemListContainer= ({listaItems}) =>{
         <>
         {listaItems}
         <ItemCount ini= {1} stock= {5} onAdd= {onAdd} />
+        <ItemList/>
         </>
     );
 }

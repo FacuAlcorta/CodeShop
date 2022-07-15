@@ -17,7 +17,7 @@ const Item = (props) => {
                     <li>ID: {props.id}</li>
                     </ol>
                  <div id="price">
-                    <div> {props.price} </div>
+                    <div> Precio: ${props.price} </div>
                     <ItemCount ini= {1} stock= {5} onAdd= {onAdd} />
                 </div>
             </div>

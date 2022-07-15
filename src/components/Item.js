@@ -7,21 +7,23 @@ const Item = (props) => {
           (console.log(`Se agregaron ${p} productos al carrito`))
         }
   return (
-    <div id="card">
-        <img src={props.thumbnail} alt=""/>
-        <div id="content">              
-                     {props.title}
-                    <ol>
-                    <li>Condición: {props.condition}</li>
-                    <li>Cantidad disponible: {props.available_quantity}</li>
-                    <li>ID: {props.id}</li>
-                    </ol>
-                 <div id="price">
-                    <div> Precio: ${props.price} </div>
-                    <ItemCount ini= {1} stock= {5} onAdd= {onAdd} />
-                </div>
-            </div>
+    <div className='container-fluid'>
+    <div className='card'>
+        <img src={props.thumbnail} alt="Gpu Img"/>
+    <div id="content">              
+        {props.title}
+            <ol>
+            <li>Condición: {props.condition}</li>
+            <li>Cantidad disponible: {props.available_quantity}</li>
+            <li>ID: {props.id}</li>
+            </ol>
+        <div id="price">
+            <div>Precio: ${props.price}</div>
         </div>
+            <div className='btns'><ItemCount ini= {1} stock= {props.available_quantity} onAdd= {onAdd} /></div>
+        </div>
+    </div>
+    </div>
   )
 }
 

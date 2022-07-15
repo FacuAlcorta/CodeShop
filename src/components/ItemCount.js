@@ -23,11 +23,11 @@ const ItemCount = ({ini, stock, onAdd}) => {
 
   return (
     <>
-      <div>
-        <button onClick={resta}>-</button>
-            <p>{ contador }</p>
-        <button onClick={suma}>+</button>
-        <button onClick={()=>onAdd(contador)}>Agregar al carro</button>
+      <div id='btn-contador'>
+        <button id='btn-count' onClick={resta}>-</button>
+        <div className='btn-show'>{ contador }</div>
+        <button id='btn-count' onClick={suma}>+</button>
+        <button className="btn-agregar" onClick={()=>onAdd(contador)}>Agregar al carro</button>
       </div>
     </>
   );

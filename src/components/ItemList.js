@@ -7,7 +7,7 @@ const ItemList = () => {
 
     useEffect(()=> {
         setInterval(()=>
-        fetch('https://api.mercadolibre.com/sites/MLA/search?q=GPU')
+        fetch('https://api.mercadolibre.com/sites/MLA/search?q=GPU=nvidia')
             .then(res => res.json())
             .then(res => setData(res.results))
             .catch(error => console.log(error))

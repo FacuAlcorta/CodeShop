@@ -3,7 +3,7 @@ import Item from './Item'
 
 const ItemList = () => {
 
-    const [data, setData]= useState([])
+    const [data, setData]= useState({})
 
     useEffect(()=> {
         setInterval(()=>
@@ -17,7 +17,10 @@ const ItemList = () => {
 
   return (
     <>
-        <h2>Placas de Video</h2>
+        <div><h2>Placas de Video</h2></div>
+        <hr/>
+        <div className='container-fluid item-card'>
+            <div className='row'>
         {
             data.length > 0 ?
             data.map(item=>(
@@ -30,8 +33,10 @@ const ItemList = () => {
                 price={item.price}
                 />
                 )) :
-                <p>Cargando contenido...</p>
+                <div><p>Cargando contenido...</p></div>
         }
+        </div>
+        </div>
     </>
   )
 }

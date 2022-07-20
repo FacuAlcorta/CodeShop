@@ -8,6 +8,7 @@ const Item = (props) => {
         }
   return (
     <div className='container-fluid'>
+    <div className='row'>
     <div className='card'>
         <img src={props.thumbnail} alt="Gpu Img"/>
     <div id="content">              
@@ -22,6 +23,7 @@ const Item = (props) => {
         </div>
             <div className='btns'><ItemCount ini= {1} stock= {props.available_quantity} onAdd= {onAdd} /></div>
         </div>
+    </div>
     </div>
     </div>
   )

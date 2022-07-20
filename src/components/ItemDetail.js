@@ -14,10 +14,10 @@ const ItemDetail = ({item}) => {
                 <div className='detail-img'>
                 <img variant="top" src={item.thumbnail} />
                 </div>
-
                 {    
                 
-                    <Card style={{ width: '35rem' }} className='col-lg-6'>
+                 item.thumbnail ?
+                <Card style={{ width: '35rem' }} className='col-lg-6'>
                     <Card.Body>
                     <Card.Title>{item.title}</Card.Title>
                     <Card.Text>
@@ -33,6 +33,9 @@ const ItemDetail = ({item}) => {
                     <ItemCount ini= {1} stock= {item.available_quantity} onAdd= {onAdd} />
                     </Card.Body>
                 </Card>
+
+                :
+                <p>Cargando contenido</p>
                 }  
    </>
   )

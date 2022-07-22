@@ -20,7 +20,7 @@ const Item = (props) => {
             <li>Condición: {props.condition}</li>
             <li>Cantidad disponible: {props.available_quantity}</li>
             <li>ID: {props.id}</li>
-            <Link to="/item/1" ><li>--DETALLE--</li></Link>
+            <Link to={`/item/${props.id}`}><li>--DETALLE--</li></Link>
             </ol>
         <div id="price">
             <div>Precio: ${props.price}</div>

@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from 'react'
-import ItemDetail from './ItemDetail'
+import ItemDetail from './ItemDetail';
+import customFetch from '../utils/customFetch';
+const {products} = require('../utils/products');
 
 const ItemDetailContainer = () => {
-
     const [data, setData]= useState({});
 
     useEffect(()=> {
-        setInterval(()=>
-        fetch('https://api.mercadolibre.com/items/MLA1142833255')
-            .then(res => res.json())
+        
+        customFetch(2000, products[2])
             .then(res => setData(res))
             .catch(error => console.log(error))
-        , 2000);
+        
     }, [])
 
 

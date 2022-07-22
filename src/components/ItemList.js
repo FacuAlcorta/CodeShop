@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import Item from './Item'
+import customFetch from '../utils/customFetch';
+const {products} = require('../utils/products');
 
 const ItemList = () => {
 
-    const [data, setData]= useState({})
+    const [data, setData]= useState({});
 
     useEffect(()=> {
-        setInterval(()=>
-        fetch('https://api.mercadolibre.com/sites/MLA/search?q=GPU=nvidia')
-            .then(res => res.json())
-            .then(res => setData(res.results))
+        
+        customFetch(2000, products)
+            .then(res => setData(res))
             .catch(error => console.log(error))
-        , 2000);
+        
     }, [])
 
 
@@ -25,7 +26,7 @@ const ItemList = () => {
             data.length > 0 ?
             data.map(item=>(
                 <Item 
-                thumbnail={item.thumbnail}
+                thumbnail={item.img}
                 title={item.title}
                 condition={item.condition}
                 available_quantity={item.available_quantity}

@@ -14,8 +14,8 @@ function App() {
         <div className='row'>
           <Navbar />
           <div id='id-body'>
-            {/* <ItemListContainer /> */}
-            <ItemDetailContainer />
+            <ItemListContainer />
+            {/* <ItemDetailContainer /> */}
           </div>
         </div>
       </div>

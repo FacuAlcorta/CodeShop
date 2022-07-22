@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import ItemCount from './ItemCount'
 
 const Item = (props) => {
@@ -17,6 +18,7 @@ const Item = (props) => {
             <li>Condición: {props.condition}</li>
             <li>Cantidad disponible: {props.available_quantity}</li>
             <li>ID: {props.id}</li>
+            <Link to={props.id}><li>--DETALLE--</li></Link>
             </ol>
         <div id="price">
             <div>Precio: ${props.price}</div>

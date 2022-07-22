@@ -20,11 +20,12 @@ const ItemListContainer = () => {
             .then(res => setData(res))
             .catch(error => console.log(error))
         }
-    }, []);
+    }, [id]);
 
 
   return (
     <>
+    
         <div><h2>Productos</h2></div>
         <hr/>
         <div className='container-fluid item-card'>

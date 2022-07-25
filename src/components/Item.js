@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import ItemCount from './ItemCount'
-import ItemDetailContainer from './ItemDetailContainer'
 
 const Item = (props) => {
     const onAdd = (p) => {
@@ -18,14 +17,14 @@ const Item = (props) => {
         {props.title}
             <ol>
             <li>Condición: {props.condition}</li>
-            <li>Cantidad disponible: {props.available_quantity}</li>
+            <li>Cantidad disponible: {props.stock}</li>
             <li>ID: {props.id}</li>
             <Link to={`/item/${props.id}`}><li>--DETALLE--</li></Link>
             </ol>
         <div id="price">
             <div>Precio: ${props.price}</div>
         </div>
-            <div className='btns'><ItemCount ini= {1} stock= {props.available_quantity} onAdd= {onAdd} /></div>
+            <div className='btns'><ItemCount ini= {1} stock= {props.stock} onAdd= {onAdd} /></div>
         </div>
     </div>
     </div>

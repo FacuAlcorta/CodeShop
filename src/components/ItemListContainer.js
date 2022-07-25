@@ -37,7 +37,7 @@ const ItemListContainer = () => {
                 thumbnail={item.img}
                 title={item.title}
                 condition={item.condition}
-                available_quantity={item.available_quantity}
+                stock={item.stock}
                 id={item.id}
                 price={item.price}
                 />

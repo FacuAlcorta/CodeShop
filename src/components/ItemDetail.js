@@ -27,7 +27,7 @@ const ItemDetail = ({item}) => {
           </Card.Body>
           <ListGroup className="list-group-flush align-items-center">
           <ListGroup.Item>{item.brand}</ListGroup.Item>
-          <ListGroup.Item>{item.available_quantity}</ListGroup.Item>
+          <ListGroup.Item>{item.stock}</ListGroup.Item>
           <ListGroup.Item>${item.price}</ListGroup.Item>
           </ListGroup>
           <Card.Body>

@@ -16,7 +16,6 @@ function App() {
           <Navbar />
           <div id='id-body'>
           <Routes>
-          
             <Route path="/" element={<ItemListContainer />} />
             <Route path="/category/:categoryId" element={<ItemListContainer />} />
             <Route path="/item/:id" element={<ItemDetailContainer />} />

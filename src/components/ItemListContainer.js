@@ -8,19 +8,19 @@ const {products} = require('../utils/products');
 const ItemListContainer = () => {
 
     const [data, setData]= useState([]);
-    const { id } = useParams();
+    const { categoryId } = useParams();
 
     useEffect(()=> {
-        if (id === undefined){
+        if (categoryId === undefined){
         customFetch(2000, products)
             .then(res => setData(res))
             .catch(error => console.log(error))
         } else {
-            customFetch(2000, products.filter(item => item.categoryId === parseInt(id)))
+            customFetch(2000, products.filter(item => item.categoryId === parseInt(categoryId)))
             .then(res => setData(res))
             .catch(error => console.log(error))
         }
-    }, [id]);
+    }, [categoryId]);
 
 
   return (

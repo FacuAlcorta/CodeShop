@@ -24,7 +24,7 @@ const Item = (props) => {
         <div id="price">
             <div>Precio: ${props.price}</div>
         </div>
-            <div className='btns'><ItemCount ini= {1} stock= {props.stock} onAdd= {onAdd} /></div>
+            <div className='btns'><ItemCount ini= {0} stock= {props.stock} onAdd= {onAdd} /></div>
         </div>
     </div>
     </div>

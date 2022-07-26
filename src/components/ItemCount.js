@@ -27,6 +27,7 @@ const ItemCount = ({ini, stock, onAdd}) => {
         <button id='btn-count' onClick={resta}>-</button>
         <div className='btn-show'>{ contador }</div>
         <button id='btn-count' onClick={suma}>+</button>
+        
         <button className="btn-agregar" onClick={()=>onAdd(contador)}>Agregar al carro</button>
       </div>
     </>

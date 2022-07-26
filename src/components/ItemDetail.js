@@ -1,43 +1,51 @@
+import { useState } from 'react';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import ItemCount from "./ItemCount";
-
+import { Link } from 'react-router-dom';
 
 const ItemDetail = ({item}) => {
+    const [itemIni, setItemIni] = useState(0)
 
     const onAdd = (p) => {
-        (p == 1) ? (console.log(`Se agregó ${p} producto al carrito`)) :
-          (console.log(`Se agregaron ${p} productos al carrito`))
+          (p == 1) ? (alert(`Se agregó ${p} producto al carrito`)) :
+          (alert(`Se agregaron ${p} productos al carrito`))
+          setItemIni(p)
         }
+        
   return (
     <>
-    <div className='detail-img'>
+    <div className='detail-img container-fluid'>
     <img variant="top" alt='' src={item.img} />
-    </div>
-
+    
       {    
       
        item.img ?
-      <Card style={{ width: '35rem' }} className='col-lg-6'>
+      <Card style={{ width: '35rem' }} className='card-container container'>
           <Card.Body>
-          <Card.Title>{item.name}</Card.Title>
+          <Card.Title><h2 style={{textDecoration: "underline"}}>{item.name}</h2></Card.Title>
           <Card.Text>
               {item.description}
           </Card.Text>
           </Card.Body>
           <ListGroup className="list-group-flush align-items-center">
-          <ListGroup.Item>{item.brand}</ListGroup.Item>
-          <ListGroup.Item>{item.stock}</ListGroup.Item>
-          <ListGroup.Item>${item.price}</ListGroup.Item>
+          <ListGroup.Item>Fabricante: {item.brand}</ListGroup.Item>
+          <ListGroup.Item>Stock: {item.stock}</ListGroup.Item>
+          <ListGroup.Item>Precio: ${item.price}</ListGroup.Item>
           </ListGroup>
           <Card.Body>
-          <ItemCount ini= {1} stock= {item.stock} onAdd= {onAdd} />
+            {
+              itemIni === 0 
+            ? <ItemCount ini= {itemIni} stock= {item.stock} onAdd= {onAdd} />
+            : <Link to="/cart"><button className='btn-agregar' style={{textDecoration: "none"}}>Checkout</button></Link>
+            }
           </Card.Body>
       </Card>
 
       :
       <p>Cargando contenido</p>
       }  
+      </div>
 </>
   )
 }

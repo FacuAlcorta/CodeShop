@@ -6,12 +6,11 @@ const Navbar= () => {
     <>
         <nav className="navbar sticky-top navbar-dark bg-dark">
           <div className="container-fluid">
-            <Link to="/"><div className="navbar-brand">PC/MasterRace</div></Link>
-            <a className="navbar-brand" href="#">#Home</a>
-            <Link to="/category/1"><a className="navbar-brand" href="#">Placas de Video</a></Link>
-            <Link to="/category/2"><a className="navbar-brand" href="#">Procesadores</a></Link>
-            <a className="navbar-brand" href="#">Contacto</a>
-            <a className="navbar-brand" href="#"><CartWidget /></a>
+            <Link to="/" style={{textDecoration: "none"}}><div className="navbar-brand">PC/MasterRace</div></Link>
+            <Link to="/category/1" style={{textDecoration: "none"}}><a className="navbar-brand" href="GPUs">Placas de Video</a></Link>
+            <Link to="/category/2" style={{textDecoration: "none"}}><a className="navbar-brand" href="CPUs">Procesadores</a></Link>
+            <a className="navbar-brand" href="Contacto">Contacto</a>
+            <Link to="/cart"><a className="navbar-brand" href="#"><CartWidget /></a></Link>
           </div>
         </nav>
     </>

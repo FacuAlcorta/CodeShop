@@ -37,7 +37,7 @@ const CartContextProvider = ({children}) =>{
 
     const cantItemTotal = () =>{
             let qty = cartList.map(item => item.cantItem);
-            return qty.reduce(((anterior, posterior) => anterior + posterior, 0))
+            return qty.reduce(((anterior, posterior) => anterior + posterior), 0)
     }
 
     return(

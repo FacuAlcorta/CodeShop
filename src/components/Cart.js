@@ -1,9 +1,42 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { CartContext } from './CartContext';
+import { Product, ProductDetail, ProductPrice, PriceDetail, Details, ImageCart, ContentCart, TitleCart, WrapperCart, ProductAmount } from './styledComponents'
 
 const Cart = () => {
+  
+  const global = useContext(CartContext);
+
   return (
-    <div>Tu carrito de compras</div>
-  )
+    <>
+    <WrapperCart>
+        <TitleCart>Tu Carrito</TitleCart>
+
+        {
+          global.cartList.length > 0 && global.cartList.map(item => (
+            
+        <ContentCart>
+                <Product>
+                <ProductDetail>
+                    <ImageCart src={item.img} />
+                    <Details>
+                    <span>
+                        <b>Producto:</b> {item.name}
+                    </span>
+                    </Details>
+                </ProductDetail>
+                <PriceDetail>
+                    <ProductAmount>{item.cantItem} Item</ProductAmount>
+                    <ProductPrice>$ {item.price} C/U</ProductPrice>
+                    <button onClick={() => global.removeItem(item.id)}>Quitar Producto</button>
+                </PriceDetail>
+                </Product>
+        </ContentCart>
+          ))
+        }
+        <button onClick={global.clear(global)}>Vaciar carrito</button>
+    </WrapperCart>
+    </>
+);
 }
 
 export default Cart

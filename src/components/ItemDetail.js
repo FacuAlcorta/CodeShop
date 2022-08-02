@@ -1,16 +1,19 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import ItemCount from "./ItemCount";
 import { Link } from 'react-router-dom';
+import { CartContext } from './CartContext';
 
 const ItemDetail = ({item}) => {
     const [itemIni, setItemIni] = useState(0)
+    const global = useContext(CartContext);
 
     const onAdd = (p) => {
-          (p == 1) ? (alert(`Se agregó ${p} producto al carrito`)) :
+          (p === 1) ? (alert(`Se agregó ${p} producto al carrito`)) :
           (alert(`Se agregaron ${p} productos al carrito`))
-          setItemIni(p)
+          setItemIni(p);
+          global.addToCart(item, p);
         }
         
   return (

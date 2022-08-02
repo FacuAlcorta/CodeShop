@@ -6,11 +6,13 @@ import ItemDetailContainer from './components/ItemDetailContainer';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import ItemListContainer from './components/ItemListContainer';
 import Cart from './components/Cart';
+import CartContextProvider from './components/CartContext'
 
 
 
 function App() {
   return (
+    <CartContextProvider>
     <BrowserRouter>
       <div className='container-fluid'>
         <div className='row'>
@@ -28,6 +30,7 @@ function App() {
         </div>
       </div>
     </BrowserRouter>
+    </CartContextProvider>
   );
 }
 

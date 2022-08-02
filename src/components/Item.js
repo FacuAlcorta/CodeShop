@@ -4,7 +4,7 @@ import ItemCount from './ItemCount'
 
 const Item = (props) => {
     const onAdd = (p) => {
-        (p == 1) ? (console.log(`Se agregó ${p} producto al carrito`)) :
+        (p === 1) ? (console.log(`Se agregó ${p} producto al carrito`)) :
           (console.log(`Se agregaron ${p} productos al carrito`))
         }
 

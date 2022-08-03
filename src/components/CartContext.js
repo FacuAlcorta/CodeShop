@@ -42,8 +42,13 @@ const CartContextProvider = ({children}) =>{
             return qty.reduce(((anterior, posterior) => anterior + posterior), 0)
     }
 
+    const totalSum = () => {
+        let total= cartList.map(item => item.price);
+        return total.reduce((totalCount, product) => totalCount.price * totalCount.qty)
+      }
+
     return(
-        <CartContext.Provider value={{cartList, addToCart, removeItem, clear, cantItemTotal}}>
+        <CartContext.Provider value={{cartList, addToCart, removeItem, clear, cantItemTotal, totalSum}}>
             { children }
         </CartContext.Provider>
     )

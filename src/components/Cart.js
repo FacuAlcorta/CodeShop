@@ -3,18 +3,16 @@ import { CartContext } from './CartContext';
 import { Product, ProductDetail, ProductPrice, PriceDetail, Details, ImageCart, ContentCart, TitleCart, WrapperCart, ProductAmount } from './styledComponents'
 
 const Cart = () => {
-  
+
   const global = useContext(CartContext);
 
   return (
-    <>
-    <WrapperCart>
+        <WrapperCart>
         <TitleCart>Tu Carrito</TitleCart>
-
         {
-          global.cartList.length > 0 && global.cartList.map(item => (
+          global.cartList.length > 0 && global.cartList.map((item) => (
             
-        <ContentCart>
+          <ContentCart>
                 <Product>
                 <ProductDetail>
                     <ImageCart src={item.img} />
@@ -30,12 +28,11 @@ const Cart = () => {
                     <button onClick={() => global.removeItem(item.id)}>Quitar Producto</button>
                 </PriceDetail>
                 </Product>
-        </ContentCart>
+          </ContentCart>
           ))
         }
-        <button onClick={global.clear(global)}>Vaciar carrito</button>
-    </WrapperCart>
-    </>
+        <button onClick={global.clear}>Vaciar carrito</button>
+      </WrapperCart>
 );
 }
 

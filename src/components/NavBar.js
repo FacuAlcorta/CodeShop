@@ -10,7 +10,7 @@ const Navbar= () => {
             <Link to="/category/1" style={{textDecoration: "none"}}><a className="navbar-brand" href="GPUs">Placas de Video</a></Link>
             <Link to="/category/2" style={{textDecoration: "none"}}><a className="navbar-brand" href="CPUs">Procesadores</a></Link>
             <a className="navbar-brand" href="Contacto">Contacto</a>
-            <Link to="/cart"><a className="navbar-brand" href="#"><CartWidget /></a></Link>
+            <Link to="/cart"><a className="navbar-brand" href="Carrito"><CartWidget /></a></Link>
           </div>
         </nav>
     </>

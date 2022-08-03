@@ -31,9 +31,7 @@ const Cart = () => {
           </ContentCart>
           ))
         }
-        <TitleCart>Ttotal de tu compra
-          <PriceDetail>${() => global.totalSum()}</PriceDetail>
-        </TitleCart>
+        <TitleCart>Total de tu compra $ {global.totalFinal()}</TitleCart>
         <button onClick={global.clear}>Vaciar carrito</button>
       </WrapperCart>
 );

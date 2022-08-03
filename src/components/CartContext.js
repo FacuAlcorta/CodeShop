@@ -42,13 +42,23 @@ const CartContextProvider = ({children}) =>{
             return qty.reduce(((anterior, posterior) => anterior + posterior), 0)
     }
 
+    
+    const totalItems = (id) => {
+        let total= cartList.map(item => item.id).indexOf(id);
+        return cartList[total].price * cartList[total].cantItem;
+    }
+    
     const totalSum = () => {
-        let total= cartList.map(item => item.price);
-        return total.reduce((totalCount, product) => totalCount.price * totalCount.qty)
-      }
+        let totales = cartList.map(item => totalItems(item.id))
+        return totales.reduce((anterior, posterior) => anterior + posterior)
+    }
+
+    const totalFinal = () =>{
+        return totalSum()
+    }
 
     return(
-        <CartContext.Provider value={{cartList, addToCart, removeItem, clear, cantItemTotal, totalSum}}>
+        <CartContext.Provider value={{cartList, addToCart, removeItem, clear, cantItemTotal, totalFinal}}>
             { children }
         </CartContext.Provider>
     )

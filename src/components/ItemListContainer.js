@@ -1,8 +1,8 @@
 import React, { useEffect, useState} from 'react'
 import Item from './Item'
-import customFetch from '../utils/customFetch';
 import { useParams } from 'react-router'
-const {products} = require('../utils/products');
+import { collection, getDocs, orderBy, query, where } from "firebase/firestore";
+import { db } from '../utils/customFirebase'
 
 
 const ItemListContainer = () => {
@@ -11,15 +11,26 @@ const ItemListContainer = () => {
     const { categoryId } = useParams();
 
     useEffect(()=> {
-        if (categoryId === undefined){
-        customFetch(2000, products)
-            .then(res => setData(res))
-            .catch(error => console.log(error))
-        } else {
-            customFetch(2000, products.filter(item => item.categoryId === parseInt(categoryId)))
-            .then(res => setData(res))
-            .catch(error => console.log(error))
+        
+        const customFetchFirestore = async (categoryId) => {
+            let cat;
+            if (categoryId) {
+                cat = query(collection(db, "products"), where('categoryId', '===', categoryId))
+            } else {
+                cat = query(collection(db, "products"), orderBy("categoryId"))
+            }
+                const querySnapshot = await getDocs(cat);
+                const dataFirestore = querySnapshot.docs.map((doc) => ({
+                    id: doc.id,
+                    ...doc.data()
+            
+            }));
+            return dataFirestore
         }
+        customFetchFirestore(categoryId)
+        .then(res => setData(res))
+        .catch(err => console.log(err))
+        
     }, [categoryId]);
 
 

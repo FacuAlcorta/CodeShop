@@ -1,8 +1,9 @@
 import React, { useEffect, useState} from 'react'
 import Item from './Item'
 import { useParams } from 'react-router'
-import { collection, getDocs, orderBy, query, where } from "firebase/firestore";
-import { db } from '../utils/customFirebase'
+//import { customFetchFirestore } from '../utils/customFetchFirebase'
+import { getDocs, orderBy, query, where } from 'firebase/firestore'
+import { collectionFire } from '../utils/customFirebase'
 
 
 const ItemListContainer = () => {
@@ -11,25 +12,13 @@ const ItemListContainer = () => {
     const { categoryId } = useParams();
 
     useEffect(()=> {
-        
-        const customFetchFirestore = async (categoryId) => {
-            let cat;
-            if (categoryId) {
-                cat = query(collection(db, "products"), where('categoryId', '===', categoryId))
-            } else {
-                cat = query(collection(db, "products"), orderBy("categoryId"))
-            }
-                const querySnapshot = await getDocs(cat);
-                const dataFirestore = querySnapshot.docs.map((doc) => ({
-                    id: doc.id,
-                    ...doc.data()
-            
-            }));
-            return dataFirestore
-        }
-        customFetchFirestore(categoryId)
-        .then(res => setData(res))
-        .catch(err => console.log(err))
+
+        const filter = categoryId ? query(collectionFire, where('categoryId', '==', categoryId))
+        : query(collectionFire, orderBy('categoryId'))
+
+        getDocs(filter)
+            .then(result => setData(result.docs.map(doc => (doc.data()))))
+            .catch(err => console.log(err))
         
     }, [categoryId]);
 

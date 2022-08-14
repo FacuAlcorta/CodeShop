@@ -50,7 +50,7 @@ const CartContextProvider = ({children}) =>{
     
     const totalSum = () => {
         let totales = cartList.map(item => totalItems(item.id))
-        return totales.reduce((anterior, posterior) => anterior + posterior)
+        return totales.reduce(((anterior, posterior) => anterior + posterior), 0)
     }
 
     const totalFinal = () =>{

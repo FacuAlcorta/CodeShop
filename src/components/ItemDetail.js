@@ -9,11 +9,11 @@ const ItemDetail = ({item}) => {
     const [itemIni, setItemIni] = useState(0)
     const global = useContext(CartContext);
 
-    const onAdd = (qty) => {
-          (qty === 1) ? (alert(`Se agregó ${qty} producto al carrito`)) :
-          (alert(`Se agregaron ${qty} productos al carrito`))
-          setItemIni(qty);
-          global.addToCart(item, qty);
+    const onAdd = (p) => {
+          (p === 1) ? (alert(`Se agregó ${p} producto al carrito`)) :
+          (alert(`Se agregaron ${p} productos al carrito`))
+          setItemIni(p);
+          global.addToCart(item, p);
         }
         
   return (

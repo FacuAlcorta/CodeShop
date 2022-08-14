@@ -10,10 +10,10 @@ const Cart = () => {
         <WrapperCart>
         <TitleCart>Tu Carrito</TitleCart>
         {
-          global.cartList.length > 0 && global.cartList.map((item) => (
+          global.cartList.length !== 0 && global.cartList.map(item =>
             
           <ContentCart>
-                <Product>
+                <Product key={item.id}>
                 <ProductDetail>
                     <ImageCart src={item.img} />
                     <Details>
@@ -29,10 +29,10 @@ const Cart = () => {
                 </PriceDetail>
                 </Product>
           </ContentCart>
-          ))
+          )
         }
         <TitleCart>Total de tu compra $ {global.totalFinal()}</TitleCart>
-        <button onClick={global.clear}>Vaciar carrito</button>
+        <button onClick={()=> global.clear()}>Vaciar carrito</button>
       </WrapperCart>
 );
 }

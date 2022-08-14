@@ -18,13 +18,12 @@ const ItemDetailContainer = () => {
   
             if (docSnap.exists()) {
               return{
-                id: id,
                 ...docSnap.data()}
             } else {
               console.log("Producto no encontrado!");
             }
       }
-        firebaseDetail()
+        firebaseDetail(data)
             .then(res => setData(res))
             .catch(error => console.log(error))
         

@@ -4,6 +4,7 @@ import { Product, ProductDetail, ProductPrice, PriceDetail, Details, ImageCart, 
 import { Link } from 'react-router-dom';
 import { serverTimestamp, doc, collection, setDoc } from 'firebase/firestore';
 import { db } from '../utils/customFirebase'
+import { clear } from '@testing-library/user-event/dist/clear';
 
 const Cart = () => {
 
@@ -38,6 +39,7 @@ const Cart = () => {
       .then(result => alert("Se ha creado tu orden n° " + result.id + "\nTe enviaremos un email con el detalle de tu compra."))
       .catch(err => console.log(err))
 
+      global.clear()
     }
   
 

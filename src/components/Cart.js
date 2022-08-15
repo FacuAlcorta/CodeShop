@@ -2,9 +2,8 @@ import React, { useContext } from 'react'
 import { CartContext } from './CartContext';
 import { Product, ProductDetail, ProductPrice, PriceDetail, Details, ImageCart, ContentCart, TitleCart, WrapperCart, ProductAmount } from './styledComponents'
 import { Link } from 'react-router-dom';
-import { serverTimestamp, doc, collection, setDoc } from 'firebase/firestore';
+import { serverTimestamp, doc, collection, setDoc, updateDoc, increment } from 'firebase/firestore';
 import { db } from '../utils/customFirebase'
-import { clear } from '@testing-library/user-event/dist/clear';
 
 const Cart = () => {
 
@@ -27,7 +26,6 @@ const Cart = () => {
       items: itemDB,
       total: global.totalFinal(),
       }
-      console.log(order);
 
       const createOrderFirestore = async () => {
         const newOrderRef = doc(collection(db, "orders"))
@@ -38,6 +36,14 @@ const Cart = () => {
       createOrderFirestore()
       .then(result => alert("Se ha creado tu orden n° " + result.id + "\nTe enviaremos un email con el detalle de tu compra."))
       .catch(err => console.log(err))
+
+
+      global.cartList.forEach(async (item) => {
+        const itemRef = doc(db, "products", item.idItem)
+        await updateDoc(itemRef, {
+          stock: increment(-item.cantItem)
+        })
+      })
 
       global.clear()
     }

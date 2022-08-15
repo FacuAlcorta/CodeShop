@@ -7,25 +7,23 @@ const CartContextProvider = ({children}) =>{
     const [cartList, setCartList] = useState([]);
 
     const addToCart = (item, qty) => {
-
-    let found = cartList.find( p => p.id === item.id);
-
-    if (found === undefined) {
-        setCartList([
-                ...cartList, 
-                {
-                    id : item.id,
-                    name : item.name,
-                    price : item.price,
-                    img : item.img,
-                    cantItem : qty
+            let found = cartList.find( prod => prod.idItem === item.id);
+            if (found === undefined) {
+                setCartList([
+                    {
+                        idItem : item.id,
+                        name : item.name,
+                        price : item.price,
+                        img : item.img,
+                        cantItem : qty
+                    },
+                    ...cartList
+                    ]);
+                } else {
+                            found.cantItem += qty;
+                    }
+            
                 }
-            ]);
-        } else {
-                    found.cantItem += qty
-            }
-    
-        }
     
     
     const removeItem = (id) => {
@@ -36,26 +34,22 @@ const CartContextProvider = ({children}) =>{
     const clear = () => {
         setCartList([])
     }
-
-    const cantItemTotal = () =>{
-            let qty = cartList.map(item => item.cantItem);
-            return qty.reduce(((anterior, posterior) => anterior + posterior), 0)
-    }
-
-    
-    const totalItems = (id) => {
-        let total= cartList.map(item => item.id).indexOf(id);
-        return cartList[total].price * cartList[total].cantItem;
-    }
     
     const totalSum = () => {
-        let totales = cartList.map(item => totalItems(item.id))
-        return totales.reduce(((anterior, posterior) => anterior + posterior), 0)
+        return cartList.reduce((total, product)=> total + product.cantItem * product.price, 0)
     }
 
+    
     const totalFinal = () =>{
         return totalSum()
     }
+
+
+    const cantItemTotal = () =>{
+            let qtys = cartList.map(item => item.cantItem).reduce((previousValue, currentValue) => previousValue + currentValue, 0)
+            return qtys
+    }
+
 
     return(
         <CartContext.Provider value={{cartList, addToCart, removeItem, clear, cantItemTotal, totalFinal}}>

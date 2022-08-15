@@ -18,6 +18,7 @@ const ItemDetailContainer = () => {
   
             if (docSnap.exists()) {
               return{
+                id: id,
                 ...docSnap.data()}
             } else {
               console.log("Producto no encontrado!");

@@ -27,7 +27,7 @@ const CartContextProvider = ({children}) =>{
     
     
     const removeItem = (id) => {
-        const newList = cartList.filter(item => item.id !== id)
+        const newList = cartList.filter(item => item.name !== id)
         setCartList(newList)
     }
 
@@ -44,11 +44,10 @@ const CartContextProvider = ({children}) =>{
         return totalSum()
     }
 
-
     const cantItemTotal = () =>{
-            let qtys = cartList.map(item => item.cantItem).reduce((previousValue, currentValue) => previousValue + currentValue, 0)
-            return qtys
-    }
+        let qtys = cartList.map(item => item.cantItem).reduce((previousValue, currentValue) => previousValue + currentValue, 0)
+        return qtys
+}
 
 
     return(

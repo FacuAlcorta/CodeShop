@@ -70,7 +70,7 @@ const Cart = () => {
                 <PriceDetail>
                     <ProductAmount>{item.cantItem} Item</ProductAmount>
                     <ProductPrice>$ {item.price} C/U</ProductPrice>
-                    <button onClick={() => global.removeItem(item.id)}>Quitar Producto</button>
+                    <button onClick={() => global.removeItem(item.name)}>Quitar Producto</button>
                 </PriceDetail>
                 </Product>
           </ContentCart>
